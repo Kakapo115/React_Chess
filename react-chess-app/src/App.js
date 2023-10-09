@@ -12,7 +12,7 @@ import io from "socket.io-client";
 const socket = io.connect("http://localhost:8000");
 
 function App() {
-  Axios.defaults.baseURL = "http://localhost:8000";
+  Axios.defaults.baseURL = "http://localhost:8000"; // Change to onrender link
   Axios.defaults.withCredentials = true;
   const cookies = new Cookies();
   const userId = cookies.get("userId");
