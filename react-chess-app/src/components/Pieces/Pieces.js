@@ -1,6 +1,6 @@
 import "./Pieces.css";
 import Piece from "./Piece";
-import { useEffect, useRef } from "react"; // useState
+import { useEffect, useRef, useCallback } from "react"; // useState
 // import { createPosition } from "../../helper";
 import { useAppContext } from "../../contexts/Context";
 import { clearCandidates, makeNewMove } from "../reducer/actions/move";
@@ -106,7 +106,7 @@ const Pieces = () => {
     dispatch(clearCandidates());
   };
 
-  const moveRecieved = ({ x, y, rank, piece, file, gameTurn }) => {
+  const moveRecieved = useCallback(({ x, y, rank, piece, file, gameTurn }) => {
     const cookies = new Cookies();
     cookies.set("gameTurn", gameTurn);
     const opponent = piece.startsWith("b") ? "w" : "b";
@@ -140,7 +140,7 @@ const Pieces = () => {
     } else if (arbiter.isCheckMate(newPosition, opponent, castleDirection)) {
       dispatch(detectCheckmate(piece[0]));
     }
-  };
+  },[appState, currentPosition, dispatch]);
 
   const onDrop = (e) => {
     e.preventDefault();
@@ -151,7 +151,7 @@ const Pieces = () => {
     e.preventDefault();
   };
 
-  const upgradePiece = ({ option, promotionSquare, color, gameTurn }) => {
+  const upgradePiece = useCallback(({ option, promotionSquare, color, gameTurn }) => {
     const cookies = new Cookies();
     cookies.set("gameTurn", gameTurn);
     const newPosition = copyPosition(
@@ -169,7 +169,7 @@ const Pieces = () => {
     });
 
     dispatch(makeNewMove({ newPosition, newMove }));
-  };
+  },[appState, dispatch]);
 
   useEffect(() => {
     // Getting info from cookies

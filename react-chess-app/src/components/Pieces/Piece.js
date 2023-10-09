@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 
 const Piece = ({ rank, file, piece }) => {
   const { appState, dispatch } = useAppContext();
-  const { turn, position: currentPosition, castleDirection } = appState;
+  const { position: currentPosition, castleDirection } = appState;
 
   const onDragStart = (e) => {
     e.dataTransfer.effectAllowed = "move";
