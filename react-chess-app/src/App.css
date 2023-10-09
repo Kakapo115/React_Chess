@@ -1,0 +1,56 @@
+@import "./constants.css";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  background: var(--bg-color);
+  font-family: "Sofia Sans", sans-serif;
+  grid-template-columns: auto 220px;
+}
+
+button {
+  background: var(--dark-tile);
+  color: var(--light-tile);
+  border: 0 none;
+  padding: 10px 30px;
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.createUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers items horizontally */
+  justify-content: center; /* This centers items vertically */
+  height: 100vh; /* Optionally, set a height to fill the viewport */
+}
+
+.Game {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  background: var(--bg-color);
+  font-family: "Sofia Sans", sans-serif;
+  grid-template-columns: auto 220px;
+}
+
+.GameInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers items horizontally */
+  justify-content: center; /* This centers items vertically */
+  height: 100vh; /* Optionally, set a height to fill the viewport */
+  background: var(--bg-color);
+}
+
+h1, p, span {
+  color: white;
+  padding-right: 10px;
+}
