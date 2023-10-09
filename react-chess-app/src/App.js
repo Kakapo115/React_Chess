@@ -9,10 +9,10 @@ import Axios from "axios";
 import RoomControl from "./components/RoomControl/RoomControl";
 import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:8000");
+const socket = io.connect("https://react-chess-backend.onrender.com");
 
 function App() {
-  Axios.defaults.baseURL = "http://localhost:8000"; // Change to onrender link
+  Axios.defaults.baseURL = "https://react-chess-backend.onrender.com"; // Change to onrender link
   Axios.defaults.withCredentials = true;
   const cookies = new Cookies();
   const userId = cookies.get("userId");

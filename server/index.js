@@ -10,8 +10,12 @@ const server = http.createServer(app);
 // Middleware
 const cors = require("cors");
 const { count } = require("console");
-app.use(cors({ origin: "http://localhost:3000" // Change to netlify link.
-, credentials: true }));
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Change to netlify link.
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 const io = new Server(server, {
