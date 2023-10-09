@@ -12,7 +12,7 @@ const cors = require("cors");
 const { count } = require("console");
 app.use(
   cors({
-    origin: "http://localhost:3000", // Change to netlify link.
+    origin: "https://master--ricky-syme-react-chess-app.netlify.app", // Change to netlify link.
     credentials: true,
   })
 );
@@ -20,7 +20,7 @@ app.use(express.json());
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://master--ricky-syme-react-chess-app.netlify.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
